@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+
+import { User } from './../model/user.model';
+import { Component, Input } from '@angular/core';
+import { USER_DATA } from './../data/mocks';
 
 @Component({
     selector : "app-users",
@@ -7,17 +10,15 @@ import { Component } from '@angular/core';
 })
 export class UsersComponent{
 
-    moreInfo(user : any){
-        alert(`${user.firstName} is working with ${user.company}!`);
-    }
+    user : User;
 
-    user = {
-        firstName : "Bill",
-        lastName : "Gates",
-        dob : new Date("Dec 21, 1965"),
-        income : 50000,
-        company : "Microsoft",
-        isWorking : true,
-        vote : 120
+    constructor(){}
+    ngOnInit(){
+       this.user = USER_DATA;
+    }
+    @Input('title') title : string;
+
+    moreInfo(user : User){
+        alert(`${user.firstName} is working with ${user.company}!`);
     }
 }

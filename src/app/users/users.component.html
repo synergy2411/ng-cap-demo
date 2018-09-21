@@ -1,17 +1,28 @@
 <div class="container">
+    <h1>Welcome to {{title}}!</h1>
+    <ng-content></ng-content>
     <ul class="list-unstyled">
         <li class="well">
-            <h1> {{user.firstName}} {{ user.lastName }} </h1>
-            <!-- <p>Income : {{ user.income }} </p> -->
-            <p>Income : <span [innerHTML]="user.income"></span> </p>
-            <p>Date of Birth : {{ user.dob }}</p>
-            <button (click)="moreInfo(user)" 
-                class="btn btn-info btn-sm">More Info</button>
-            Total Votes : {{ user.vote }}
-            <input type="number" 
-                [value]="user.vote"
-                (change)="user.vote = $event.target.value">
-            <input type="number" [(ngModel)]="user.vote">
+            <div class="row">
+                <div class="col-md-2 col-sm-3 col-xs-2">
+                    <img [src]="user.image" class="img-circle img-responsive">
+                    <button (click)="moreInfo(user)" class="btn btn-info btn-sm">More Info</button>
+                </div>
+                <div class="col-md-9 col-sm-8 col-xs-10">
+                    <h1> {{user.firstName}} {{ user.lastName }} </h1>
+                    <!-- <p>Income : {{ user.income }} </p> -->
+                    <p>Income : <span [innerHTML]="user.income"></span> </p>
+                    <p>Date of Birth : {{ user.dob }}</p>
+                    
+                    Total Votes : {{ user.vote }}
+                    <input type="number" [value]="user.vote" (change)="user.vote = $event.target.value">
+                    <input type="number" [(ngModel)]="user.vote">
+                </div>
+                
+            </div>
+
+
+
         </li>
     </ul>
 

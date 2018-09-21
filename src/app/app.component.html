@@ -1,6 +1,16 @@
-<div>
+<div class="container">
+
+  <app-built-in-demo></app-built-in-demo>
+
+  <!-- <app-life-cycle-demo [title]="title"></app-life-cycle-demo> -->
+
+  <hr>
+
   <p>App Work!</p>
-  <app-users></app-users>
+  <input type="text"[(ngModel)]="title">
+  <app-users [title]="title">
+    <h2>Some heading</h2>
+  </app-users>
   <!-- <app-users></app-users>
   <app-users></app-users> -->
 </div>
