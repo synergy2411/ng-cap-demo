@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>
+    Contact Number : {{ contact_no | countryCode : 'IND'}}
+  </h2>
+  <h3>
+    Data : {{ data | async | uppercase }}
+  </h3>
+</div>
+
+<input type="text" [(ngModel)]="filteredStatus">
+<button classs="btn btn-defualt" (click)="addNewTodo()">
+  Add New Todo
+</button>
+<div class="container">
+  <ul class="list-group">
+    <li *ngFor="let todo of todos | filter :filteredStatus:'status' " class="list-group-item">
+        {{ todo.label }}
+        <span class="badge">{{ todo.status}}</span>
+    </li>
+  </ul>
+</div>

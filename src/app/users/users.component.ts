@@ -10,11 +10,11 @@ import { USER_DATA } from './../data/mocks';
 })
 export class UsersComponent{
 
-    user : User;
+    users : User[];
 
     constructor(){}
     ngOnInit(){
-       this.user = USER_DATA;
+       this.users = USER_DATA;
     }
     @Input('title') title : string;
 

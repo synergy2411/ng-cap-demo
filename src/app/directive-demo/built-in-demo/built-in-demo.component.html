@@ -1,4 +1,5 @@
 <div class="container">
+  <h3 appHighlight [defaultColor]="myColor">Test</h3>
   <ul class="list-unstyled">
     <li class="well" *ngFor="let user of users; index as i; first as isFirst; last as isLast; even as isEven; odd as isOdd;">
       <div class="row">
@@ -9,16 +10,16 @@
           <button (click)="moreInfo(user)" class="btn btn-info btn-sm">More Info</button>
         </div>
         <div class="col-md-9 col-sm-8 col-xs-10">
-          <h1> {{user.firstName}} {{ user.lastName }} </h1>
+          <h1 [ngStyle]="{'color' : 'red'}"> {{user.firstName | uppercase }} {{ user.lastName | uppercase }} </h1>
           <!-- <p>Income : {{ user.income }} </p> -->
-          <p *ngIf="user.isWorking; else ElseTemplate">Income : <span [innerHTML]="user.income"></span> </p>
+          <p appHighlight [defaultColor]="'yellow'" *ngIf="user.isWorking; else ElseTemplate">Income : <span [innerHTML]="user.income | currency : 'INR'"></span> </p>
           
           <!-- <ng-template [ngIf]="user.isWorking">
              <p> Income : <span [innerHTML]="user.income"></span> </p>
           </ng-template> -->
 
-
-          <p>Date of Birth : {{ user.dob }}</p>
+          <p [ngStyle]="{'font-weight' : 'bold', 'border-bottom' : borderBottom}">
+              Date of Birth : {{ user.dob | date : 'MM/dd/yyyy' }}</p>
 
           Total Votes : {{ user.vote }}
           <input type="number" [value]="user.vote" (change)="user.vote = $event.target.value">
@@ -26,7 +27,7 @@
         </div>
 
         <ng-template #ElseTemplate>
-          {{user.firstName}} is not Working now!
+         <p [ngClass]="{'feature' : isOdd}"> {{user.firstName}} is not Working now!</p>
         </ng-template>
 
       </div>

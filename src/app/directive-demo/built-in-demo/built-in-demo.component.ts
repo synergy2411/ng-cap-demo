@@ -9,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuiltInDemoComponent implements OnInit {
 
+  myColor = "green";
+
+  borderBottom = "1px blue solid";
+
   users : User[];
 
   constructor() { }
