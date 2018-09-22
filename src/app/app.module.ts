@@ -1,3 +1,4 @@
+import { APP_ROUTES } from './app.routes';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, enableProdMode } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -13,6 +14,8 @@ import { TemplateFormDemoComponent } from './template-form-demo/template-form-de
 import { ModelFormDemoComponent } from './model-form-demo/model-form-demo.component';
 import { DataService } from './services/data.service';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { HttpModule } from '@angular/http';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    HttpClientModule,
+    RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [ DataService ],
   bootstrap: [AppComponent]

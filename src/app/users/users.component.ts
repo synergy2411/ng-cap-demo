@@ -21,6 +21,7 @@ export class UsersComponent{
     ngOnInit(){
     //    this.users = USER_DATA;
         // this.users = this.ds.getUserData(); 
+        this.ds.getUserJsonDatafromClient();
         this.ds.getUserJsonData()
             .subscribe(data => {
                 this.users = data;

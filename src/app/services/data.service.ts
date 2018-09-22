@@ -2,6 +2,8 @@ import { User } from './../model/user.model';
 import { USER_DATA } from './../data/mocks';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -18,6 +20,12 @@ export class DataService {
       //   console.log(data);
       // })
   }
-  constructor(private http : Http) { }
+
+  getUserJsonDatafromClient(){
+    this.httpClient.get<User[]>("./assets/data/user-data.json")
+      .subscribe(data=>{console.log(data)});
+  }
+
+  constructor(private http : Http, private httpClient : HttpClient) { }
 
 }

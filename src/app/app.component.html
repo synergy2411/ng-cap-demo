@@ -1,23 +1,36 @@
 <div class="container">
 
+<ul class="list-unstyled nav navbar-nav navbar-default">
+  <li><a [routerLink]="['login']">Login</a></li>
+  <li><a [routerLink]="['signup']">Sign Up</a></li>
+  <li><a [routerLink]="['pipe']">Pipe</a></li>
+  <li><a [routerLink]="['directive']">Directives</a></li>
+</ul>
+</div>
 
-  <app-model-form-demo></app-model-form-demo>
+<div class="container">
+  
+<p>App Work!</p>
+  <!-- <app-model-form-demo></app-model-form-demo> -->
 
 
-<!-- <app-template-form-demo></app-template-form-demo> -->
+  <!-- <app-template-form-demo></app-template-form-demo> -->
 
 
-<!-- 
+  <!-- 
   <app-pipe-demo></app-pipe-demo> -->
 
   <!-- <app-built-in-demo></app-built-in-demo> -->
 
   <!-- <app-life-cycle-demo [title]="title"></app-life-cycle-demo> -->
 
-  <hr>
 
-  <p>App Work!</p>
-  <input type="text"[(ngModel)]="title">
+
+  <router-outlet></router-outlet>
+
+
+  
+  <input type="text" [(ngModel)]="title">
   <app-users [title]="title">
     <h2>Some heading</h2>
   </app-users>
