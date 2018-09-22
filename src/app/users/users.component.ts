@@ -1,7 +1,8 @@
+import { DataService } from './../services/data.service';
 
 import { User } from './../model/user.model';
 import { Component, Input } from '@angular/core';
-import { USER_DATA } from './../data/mocks';
+// import { USER_DATA } from './../data/mocks';
 
 @Component({
     selector : "app-users",
@@ -11,10 +12,19 @@ import { USER_DATA } from './../data/mocks';
 export class UsersComponent{
 
     users : User[];
+    
+    constructor(public ds : DataService){
+       
+    }
 
-    constructor(){}
+
     ngOnInit(){
-       this.users = USER_DATA;
+    //    this.users = USER_DATA;
+        // this.users = this.ds.getUserData(); 
+        this.ds.getUserJsonData()
+            .subscribe(data => {
+                this.users = data;
+            });
     }
     @Input('title') title : string;
 

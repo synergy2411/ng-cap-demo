@@ -1,0 +1,24 @@
+<div class="container">
+    <form [formGroup]="signupForm">
+      <div class="form-group">
+        <label for="username">Username : </label>
+        <input type="text" name="username" 
+          class="form-control" [formControl]="username">
+        <div [hidden]="username.valid || username.untouched">
+          Some Problem with Username happened!
+          <div [hidden]="!username.hasError('required')">
+            Username is mandatory!
+          </div>
+          <div [hidden]="!username.hasError('minlength')">
+            Username should be at least 5 characters long!
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password : </label>
+        <input type="password" name="password" 
+          class="form-control" [formControl]="password">
+      </div>
+      <button class="btn btn-primary btn-lg" (click)="signup()">Sign up</button>
+    </form>
+  </div>
