@@ -1,3 +1,5 @@
+import { EmployeeModule } from './employee/employee.module';
+import { LoginGaurdService } from './services/login-gaurd.service';
 import { APP_ROUTES } from './app.routes';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, enableProdMode } from '@angular/core';
@@ -16,6 +18,9 @@ import { DataService } from './services/data.service';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { ProductComponent } from './product/product.component';
+import { OverviewComponent } from './product/overview/overview.component';
+import { SpecificationComponent } from './product/specification/specification.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,7 @@ import { RouterModule } from '@angular/router';
     CountryCodePipe, 
     FilterPipe, 
     TemplateFormDemoComponent, 
-    ModelFormDemoComponent
+    ModelFormDemoComponent, ProductComponent, OverviewComponent, SpecificationComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +41,10 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    EmployeeModule
   ],
-  providers: [ DataService ],
+  providers: [ DataService, LoginGaurdService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

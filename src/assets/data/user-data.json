@@ -1,4 +1,5 @@
-[
+{
+    "userdata" : [
     {
         "firstName": "Bill",
         "lastName": "Gates",
@@ -30,3 +31,4 @@
         "image": "./assets/images/tim.jpg"
     }
 ]
+}

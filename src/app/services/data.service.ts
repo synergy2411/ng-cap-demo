@@ -22,7 +22,7 @@ export class DataService {
   }
 
   getUserJsonDatafromClient(){
-    this.httpClient.get<User[]>("./assets/data/user-data.json")
+    this.httpClient.get("https://ng-cap-demo.firebaseio.com/users.json")
       .subscribe(data=>{console.log(data)});
   }
 

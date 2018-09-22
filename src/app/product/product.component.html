@@ -1,0 +1,11 @@
+<h2>{{ name }} ID # {{ id }}  </h2>
+
+<ul class="list-unstyled">
+  <li><a [routerLink]="['overview']">Overview</a></li>
+  <li><a [routerLink]="['spec']">Specification</a></li>
+
+</ul>
+
+<router-outlet></router-outlet>
+
+<button (click)="gotoHome()" class="badge">Go To Home</button>
